@@ -17,6 +17,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.io.Serializable;
 import java.util.Map;
 
@@ -34,7 +37,9 @@ import java.util.Map;
 @AllArgsConstructor
 public class ConnectEvent implements Serializable, Cloneable {
 
+    @NotNull
     private Details details;
+    @NotNull
     private String name;
 
     @Data
@@ -42,7 +47,9 @@ public class ConnectEvent implements Serializable, Cloneable {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Details implements Serializable, Cloneable {
+        @NotNull
         private ContactData contactData;
+        @NotNull
         private Map<String, Object> parameters;
     }
 
@@ -51,15 +58,25 @@ public class ConnectEvent implements Serializable, Cloneable {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ContactData implements Serializable, Cloneable {
+        @NotNull
         private Map<String, String> attributes;
+        @NotNull
         private String channel;
+        @NotNull
         private String contactId;
+        @Nullable
         private CustomerEndpoint customerEndpoint;
+        @NotNull
         private String initialContactId;
+        @NotNull
         private String initiationMethod;
+        @NotNull
         private String instanceArn;
+        @NotNull
         private String previousContactId;
+        @Nullable
         private String queue;
+        @Nullable
         private SystemEndpoint systemEndpoint;
     }
 
@@ -68,7 +85,9 @@ public class ConnectEvent implements Serializable, Cloneable {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class CustomerEndpoint implements Serializable, Cloneable {
+        @NotNull
         private String address;
+        @NotNull
         private String type;
     }
 
@@ -77,7 +96,9 @@ public class ConnectEvent implements Serializable, Cloneable {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class SystemEndpoint implements Serializable, Cloneable {
+        @NotNull
         private String address;
+        @NotNull
         private String type;
     }
 }
